@@ -1,0 +1,346 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{xcolor}
+
+\title{Projet GraphMining}
+\author{emeric.l }
+\date{December 2023}
+
+\begin{document}
+
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\center
+
+\includegraphics[width=6cm]{assets/logo_unamur}
+\\[2cm]
+
+\textsc{\LARGE Université de Namur}
+\\[2cm]
+
+\textsc{\Large SDASM101 : Graph mining }
+\\[0.2cm]
+
+\HRule
+\\[0.4cm]
+\textsc{\huge Projet : Analyse des données}
+\\[0.2cm]
+\HRule
+\\[0.4cm]
+{\large 2023 - 2024}
+
+\begin{minipage}{0.5\textwidth}
+	\begin{flushleft}
+		\emph{Auteur}
+		\\
+		\textsc{Lambois} Emeric
+		\\
+		\textsc{Santelé} Victor
+		\\
+		\textsc{Smith} Jonathan
+		\\
+	\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+	\begin{flushright}
+		\emph{Professeur}
+		\\
+		\textsc{Salnikov} Vsevolod
+		\\
+	\end{flushright}
+\end{minipage}
+
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+Dans le cadre du cours de « Graph Mining », il était attendu que chaque groupe se focalise sur l’étude des graphes empiriques, sous différentes facettes. C’est pourquoi, les objectifs attendus lors de la réalisation de ce projet sont de manipuler les concepts établis lors des différentes séances de cours que nous avons eu. De plus, il nous est demandé de comparer 2 graphes provenant de « sociopatterns.org » et de les comparer de sorte que les différentes techniques vues au cours soient appliquées.
+
+\section{Jeu de données}
+Dans l'objectif de mener à bien le projet, nous avons opté pour l'utilisation de deux ensembles de données présents dans la base de données mise à notre disposition par le professeur. Ainsi, nous avons convenu de sélectionner deux ensembles qui nous semblaient pertinents.
+
+C'est la raison pour laquelle nous avons choisi, en premier lieu, les données relatives aux contacts entre employés d'une entreprise pour l'année 2013. Cet ensemble de données représente le réseau temporel des interactions entre individus mesurées dans un immeuble de bureaux en France, du 24 juin au 3 juillet 2013.
+
+En tant que deuxième ensemble de données, nous avons sélectionné les contacts entre employés d'une entreprise pour l'année 2015. Ces données comprennent le réseau temporel des contacts entre individus mesurés dans un immeuble de bureaux en France au cours de l'année 2015.
+
+\section{Propriétés de Base du Graphe}
+
+Dans cette section, nous allons examiner les caractéristiques fondamentales des deux graphes que nous avons sélectionnés.
+
+
+\subsection{Noeuds et arêtes}
+Nous allons commencer par explorer les nœuds et arêtes de ces deux graphes.
+
+Effectivement, pour chaque graphe, tous les nœuds présents dans ces graphes représentent un employé et chaque arête de ces graphes représente un contact entre deux employés.
+
+
+Dans la première partie de cette analyse graphique, nous plongeons dans un ensemble de données composé de 92 nœuds représentant des employés et de 755 arêtes représentant les contacts entre eux au cours de l'année 2013. La densité de 0.1804 indique que seulement 18,04 \% des connexions potentielles sont établies dans ce réseau. Cette faible densité suggère une certaine rareté dans les interactions entre collègues. Il se pourrait que cette dynamique soit influencée par la structure organisationnelle spécifique mise en place en 2013.
+
+La seconde partie, en 2015, contient un ensemble de données plus vaste. Car il compte 217 nœuds et 4 274 arêtes, formant un réseau complexe. La densité de 0.1824, bien que légèrement supérieure à celle de 2013, indique que 18.24 \% seulement des connexions potentielles est active dans ce réseau. Les interactions au sein de ce réseau mettent en lumière l’échange plus dynamique de la communication interne.
+
+Ainsi, notre exploration dévoile non seulement des chiffres et des liens, mais aussi les nuances subtiles d'une communication interne façonnée par la dynamique organisationnelle.
+
+\subsection{Degré}
+Maintenant explorant les degrés de ces deux graphes
+
+Pour le graphe de 2013, nous avons : \\
+Moyenne des degrés : 16.41 \\
+Médiane des degrés : 15.5 \\
+75e quantile des degrés : 21.0 \\
+90e quantile des degrés : 26.0 \\
+Nœuds à haut degré : [80, 311, 95, 223, 63, 134, 804] \\
+
+Et pour le graphe de 2015, nous avons :  \\
+Moyenne des degrés : 39.39 \\
+Médiane des degrés : 39.0 \\
+75e quantile des degrés : 51.0 \\
+90e quantile des degrés : 58.0 \\
+Nœuds à haut degré : [1362, 215, 649, 1090, 147, 77, 160, 74, 122, 741, 378, 3, 603, 884, 267, 706, 246, 882, 250, 428, 836] \\
+
+\subsection{Distribution du Degré}
+En ce qui concerne la distribution de ceux-ci, nous pouvons voir que la moyenne et la médiane du graphe de 2013 étant proches, cela suggère une distribution symétrique.
+Nous pouvons aussi voir que certains nœuds sont très connectés et cela est vérifié par le fait que le quartile 90e est plus élevé que la moyenne. Cela peut être interprété par des employés possédants un poste potentiellement plus important, socialement poussant alors à créer plus de contact avec d’autres employés.
+
+Ensuite, nous pouvons également voir que pour le graphe de 2015, la distribution suggérée semble être aussi symétrique. Nous pouvons aussi apercevoir que ces graphes possèdent aussi des nœuds très connectés. Cette augmentation du nombre de nœuds ainsi que le nombre de nœuds fortement connecté suggèrent probablement une simple à croissance de l’entreprise donnant lieu à plus de postes à haute importance sociale, comme des chefs d’équipe par exemple, en multipliant le nombre d’équipe présente dans la société.
+
+\section{Modèle épidémiologie}
+Maintenant, que l'introduction aux graphes est terminée, essayons de mettre à l'épreuve les employés en simulant la propagation d'une maladie.
+\subsection{Centres de Propagation}
+
+Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux noeuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société.
+En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents noeuds fortement connectés. Nous pouvons voir à travers cette illustration que les noeuds sont très souvent proche du centre du graphe de pars leurs forte connexion avec le reste des noeuds.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/epidemiologie/centre_propa_2013}
+    \caption{Centres de propagations du Graphe 1 année 2013}
+    \label{fig:centre_propa_2013}
+\end{figure}
+
+En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents noeuds fortement connectés. Ici, l'illustration met évidence que ces noeuds fortement connecté se situent également proche du centre de la majorité des connexion.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/epidemiologie/centre_propa_2015}
+    \caption{Centres de propagations du Graphe 1 année 2015}
+    \label{fig:centre_propa_2015}
+\end{figure}
+
+Il est intéressant de noter que cette disposition renforce l'idée que les nœuds centraux jouent un rôle clé dans la dynamique des connexions au sein de l'ensemble du réseau.
+
+\subsection{seuls de Propagation}
+Dans le but de propager l'épidémie, nous avons défini deux paramètre :
+\begin{itemize}
+    \item beta : Taux de transmission, qui détermine la probabilité qu'un nœud susceptible devienne infecté lorsqu'il est en contact avec un nœud infecté.
+    \item gamma : Taux de récupération, qui indique la probabilité qu'un nœud infecté récupère et devienne immunisé.
+\end{itemize}
+
+Ces deux paramètres servent simplement de taux d'influences pour le comportement du modèle épidémique. Ajuster ces valeurs permet de changer la propagation de la maladie.
+
+Nous les avons ajusté à :
+\begin{itemize}
+    \item beta = 0.3 (Taux de transmission)
+    \item gamma = 0.1 (Taux de récupération)
+\end{itemize}
+
+
+\textcolor{red}{Trouver un vrai prétexte en mode histoire avec un déclenchement d'épidémie plus poussé que les taux de proba.}
+
+\textcolor{cyan}{Ce pretexte ?}
+
+Nous avons décidé de mettre à l'épreuve cette société en y incluant un collaborateurs infecté afin de voir comment se propagerait une épidémie. C'est pourquoi, nous avons créé un petit scénario pour illustrer cela.
+
+Lors d'un voyage d'affaire contenant l'intégralité des personnes à haute responsabilité dans l'entreprise, l'un des collaborateurs, sans le savoir, a contracté un virus insidieux pendant son voyage. À son retour au bureau, les premiers symptômes sont apparus, mais malheureusement, la nature légère des symptômes a conduit à un sous-estimation de la situation. Le virus, invisible et trompeur, s'est rapidement propagé au sein des bureaux de l'entreprise.
+
+Les espaces de travail ouverts, les salles de réunion animées et les pauses-café conviviales ont été des terrains fertiles pour la transmission du virus. En un rien de temps, plusieurs employés ont été touchés, créant un climat d'incertitude et de préoccupation parmi les équipes.
+
+\subsection{Simulation de Propagation}
+Dans le but de simuler la propagation, nous avons utilisé le modèle SIR.
+
+
+\textcolor{red}{En lien, la simu changera en fonction du déclenchement de l'épidémie}
+
+
+\section{Détection de communautés}
+Dans cette section, notre objectif est d'identifier la présence de communautés au sein de nos graphes en exploitant principalement la bibliothèque Python Louvain Community.
+\subsection{Communautés}
+Afin de détecter les communautés au sein de l'entreprise, notre approche initiale consiste à identifier les nœuds étroitement liés qui pourraient former une sous-population distincte au sein de la population globale d'employés. Cette sous-population, représentée comme une communauté d'employés, pourrait potentiellement correspondre à une équipe spécifique au sein de l'entreprise.
+
+Pour cette raison, nous avons créé un graphique en barres (barplot) illustrant la distribution des degrés pour chaque nœud (employé). Ce graphique permet d'estimer dans un premier temps si le graphe présente des nœuds avec des degrés élevés. Nous débutons cette analyse en visualisant le graphe de l'année 2013, qui compte moins d'employés.
+
+Dans ce premier graphe, nous observons une propension marquée à avoir un degré compris entre 15, avec 13 nœuds. Cependant, nous constatons également que le nombre de nœuds ayant moins de 10 degrés est relativement faible. Il est important de noter l'existence de nœuds avec plus de 30 degrés, suggérant probablement qu'il s'agit de nœuds fortement connectés occupant des postes à haute responsabilité, comme mentionné précédemment. La moyenne des degrés s'élève à 16.41.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/distribution_deg_2013}
+    \caption{Distribution des degrés pour le graphe 1 de l'année 2013}
+    \label{fig:distribution_deg_2013}
+\end{figure}
+
+Dans le deuxième graphe représentant l'année 2015, nous observons une moyenne presque deux fois plus élevée, soulignant une augmentation significative du nombre de connexions entre les employés. De plus, le degré maximal atteint 84, dépassant le maximum de 44 observé précédemment. Le nombre d'employés avec plus de 30 degrés est également majoritaire.
+
+Ces observations suggèrent une amélioration potentielle de l'entreprise, tant en termes d'expansion du nombre d'employés que de qualité organisationnelle de la communication entre ces employés.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/distribution_deg_2015}
+    \caption{Distribution des degrés pour le graphe 1 de l'année 2015}
+    \label{fig:distribution_deg_2015}
+\end{figure}
+
+\subsection{Détecter les Communautés}
+
+Dans l'optique de déterminer de manière définitive les communautés au sein de nos graphes, nous avons utilisé la bibliothèque Louvain Community Detection, qui s'est avérée être un outil extrêmement efficace à cet égard. Cette approche nous a permis de gagner considérablement en temps et de parvenir à des résultats concluants.
+
+Suite à la génération du graphe pour l'année 2013, nous avons identifié quatre communautés distinctes au sein de notre population globale. À première vue, il semblait que ces communautés correspondaient à des départements spécifiques au sein de l'entreprise, à savoir SFLE, DSE, SRH, DMCT et DISQ.
+
+Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés. Voici un aperçu détaillé :
+
+Communauté 1 : \\
+
+Département DSE : [513, 132, 779, 267, 15, 272, 786, 662, 791, 29, 164, 39, 939, 172, 819, 181, 311, 56, 194, 196, 205, 79, 987, 603, 222, 95, 223, 494, 496, 113, 242, 120, 123, 765] \\
+Département DMCT : [105] \\
+Département DISQ : [253] \\
+
+Communauté 2 : \\
+
+Département DMCT : [66, 771, 134, 335, 80, 17, 784, 275, 209, 21, 285, 804, 101, 102, 938, 875, 431, 240, 48, 50, 179, 118, 119, 762, 511] \\
+Communauté 3 : \\
+
+Département SRH : [448, 481, 153, 709, 122, 492, 271, 499, 533, 150, 601, 154, 63] \\
+Département SFLE : [213, 87] \\
+Communauté 4 : \\
+
+Département DISQ : [131, 265, 778, 268, 845, 273, 210, 35, 743, 751, 184, 185, 826, 255] \\
+Département SFLE : [211, 116] \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/communaute_2013.png}
+    \caption{Graphes des différentes communautés pour l'année 2013}
+    \label{fig:communaute_2013}
+\end{figure}
+
+Concernant l'année 2015, les résultats ont été un peu plus surprenants. Bien que nous ayons toujours identifié 4 communautés, la présence de différents départements est cette fois plus marquée. On aurait pu penser à des employés "hybrides", couvrant deux départements, mais cela ne semble pas être le cas.
+
+En effet, on observe une augmentation du nombre de départements, passant de 4 en 2013 à 12 en 2015, à savoir SFLE, DMI, DST, DCAR, DG, SSI, SDOC, SCOM, DMCT, DISQ, DSE, SRH. Une hypothèse plausible serait que ces différentes communautés représentent des équipes travaillant sur divers projets.
+
+Nombre total de communautés détectées : 4 \\
+
+Communautés détectées avec subdivision par département : \\
+
+Communauté 1 : \\
+
+Département SFLE : [1, 1414, 413, 432, 200, 461, 977, 475, 874, 496, 117] \\
+Département DMI : [3, 434, 574, 1090, 491, 242] \\
+Département DST : [387, 649, 779, 401, 147, 426, 1323, 429, 954, 580, 582, 71, 77, 1362, 725, 215, 603, 1245, 346, 487, 488, 1392] \\
+Département DCAR : [656, 20, 1204, 1209, 720, 1492, 89, 220, 97, 741, 886, 118, 378] \\
+Département DG : [290] \\
+Département SSI : [164, 55, 985] \\
+Département SDOC : [435, 440, 106] \\
+Département SCOM : [181, 441, 1260] \\
+Communauté 2 : \\
+
+Département DMCT : [257, 637, 784, 533, 790, 407, 793, 923, 285, 39, 809, 939, 43, 59, 702, 63, 706, 72, 80, 466, 339, 211, 468, 219, 866, 871, 753, 246, 889, 122, 894] \\
+Département DISQ : [520, 267, 525, 270, 660, 420, 428, 47, 691, 445, 836, 198, 213, 343, 478, 366, 119, 253] \\
+Département DSE : [38] \\
+Département SFLE : [197, 626] \\
+Département DG : [502] \\
+Communauté 3 : \\
+
+Département DMI : [642, 131, 259, 261, 134, 1164, 141, 909, 15, 156, 158, 159, 160, 162, 34, 165, 677, 295, 425, 1067, 178, 54, 694, 183, 1342, 959, 447, 193, 62, 453, 74, 460, 333, 205, 79, 464, 1238, 859, 353, 99, 615, 489, 236, 751, 880, 498, 372, 884, 120, 250, 763] \\
+Département SCOM : [14, 544] \\
+Département SFLE : [653] \\
+Département DST : [27] \\
+Département SSI : [173, 970, 628] \\
+Département SDOC : [245] \\
+Communauté 4 :
+
+Département DSE : [513, 771, 638, 908, 269, 527, 275, 921, 674, 424, 172, 184, 577, 322, 1485, 465, 210, 854, 477, 222, 867, 486, 743, 504, 882, 374, 248, 634, 252, 893, 510] \\
+Département SRH : [650, 272, 18, 531, 797, 845, 744, 232, 621] \\
+Département SCOM : [778, 998] \\
+Département SSI : [110] \\
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/communaute_2015.png}
+    \caption{Graphes des différentes communautés pour l'année 2015}
+    \label{fig:communaute_2015}
+\end{figure}
+
+\subsection{Analyse des Communautés}
+
+En effet, comme mentionné précédemment, il semble que les communautés ne représentent pas nécessairement la répartition des employés dans les différents départements, contrairement à ce que pourrait laisser penser le graphe de 2013. Le graphique de 2015 révèle plutôt une diversité plus marquée dans la distribution des départements au sein des communautés.
+
+L'hypothèse la plus plausible serait alors une répartition des employés au sein des différentes équipes de projet, composées de plusieurs départements. Cela pourrait être le cas, par exemple, avec des départements informatiques, économiques et juridiques travaillant en collaboration sur un projet complexe.
+
+
+Nous avons également examiné l'évolution des communications au sein des différents départements pour évaluer si l'organisation communicationnelle a connu des changements.
+
+Comme illustré dans le graphique ci-dessous (année 2013), nous observons cinq départements, chacun représenté par une boucle symbolisant la communication interne au sein du département. Cette visualisation permet d'évaluer la qualité de la communication interne de chaque département. Nous constatons que certains départements, tels que DES, DISQ, SRH et DMCT, présentent une communication interne solide. Cependant, les départements avec un effectif plus restreint affichent une communication interne plus faible. De plus, la visualisation révèle des liens de communication interdépartementaux forts, comme c'est le cas entre les départements DES et DISQ, par exemple.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/communaute_communication_2013.png}
+    \caption{Graphes représentant la communication inter et intra départements pour l'année 2013}
+    \label{fig:communaute_communication_2013}
+\end{figure}
+
+
+Cependant, en examinant le graphe ci-dessous pour l'année 2015, nous constatons une évolution du nombre de départements, comme mentionné précédemment dans cette section. Cette évolution s'accompagne également d'une évolution de la communication interne au sein des départements. Notamment, le département SFLE, autrefois caractérisé par une communication interne faible, affiche désormais une qualité supérieure. D'autres départements, présents auparavant, ont renforcé leur communication interne. Il est également intéressant de noter que certains départements, autrefois absents, deviennent des éléments presque cruciaux dans la communication. Ils présentent initialement une communication interne très solide, mais développent ensuite des liens interdépartementaux très importants. Par exemple, le département DMI, solide en communication interne, établit également des liens forts avec d'autres départements tels que SFLE, DST, DMCT et DCAR.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/communaute/communaute_communication_2015.png}
+    \caption{Graphes représentant la communication inter et intra départements pour l'année 2015}
+    \label{fig:communaute_communication_2015}
+\end{figure}
+
+
+\section{Centralité et Influence}
+Dans cette section, nous allons explorer l’importance de certains points dans le graphe en passant par la centralité de ceux-ci au travers du graphe et de ce que cela peut impliquer.
+
+\subsection{Centralité}
+En effet, lorsque nous évoquons la centralité, nous faisons référence à la centralité de proximité entre les différents employés de l'entreprise. Pour illustrer cela, nous avons créé les graphes correspondant aux années 2013 et 2015.
+
+
+Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction de ses connexions sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/centralite/deg_centralite_2013.png}
+    \caption{Graphes représentant la centralité pour l'année 2013}
+    \label{fig:deg_centralite_2013}
+\end{figure}
+
+
+En revanche, dans le graphique de l'année 2015, une diversité de nœuds présentant une centralité importante est observée. En effet, la présence de nœuds très foncés se multiplie.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=16.4cm]{assets/centralite/deg_centralite_2015.png}
+    \caption{Graphes représentant la centralité pour l'année 2015}
+    \label{fig:deg_centralite_2015}
+\end{figure}
+
+Nous avons également exploité d'autres graphiques pour confirmer la centralité des points mentionnés précédemment. Nous avons pris en compte diverses mesures telles que la centralité de proximité, la centralité d'intermédiarité, la centralité de vecteur propre, et enfin le coefficient de clustering. Toutes ces mesures semblent converger vers les mêmes résultats.
+
+\subsection{Point de Contrôle}
+
+Dans l’objectif de déterminer les noeuds jouant un rôle important dans la dynamique communicationnel des graphes, nous avons mené une étude sur les noeuds étant ce qu’on appelle un point de contrôle. Effectivement, un point de contrôle est un noeuds stratégique utile pour le contrôle d’information mais aussi pour la prévention de la propagation, dans le cas de notre épidémie évoqué dans une section antérieur, par exemple.
+
+
+\textcolor{red}{Quels type d'étude on réalise pour ça ? On prouve en lien avec les centralités ?}
+
+\section{Visualisation et Interprétation}
+
+
+\subsection{Interprétation Visuelle}
+\subsection{Couleurs et Tailles}
+
+\end{document}
