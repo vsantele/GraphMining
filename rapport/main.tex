@@ -89,33 +89,21 @@ La seconde partie, en 2015, contient un ensemble de données plus vaste. Car il 
 
 Ainsi, notre exploration dévoile non seulement des chiffres et des liens, mais aussi les nuances subtiles d'une communication interne façonnée par la dynamique organisationnelle.
 
-\subsection{Degré}
-
-\noindent
-Maintenant explorant les degrés de ces deux graphes. \\
-
-\noindent
-Pour le graphe de 2013, nous avons : \\
-\textit{Moyenne des degrés} : 16.41 \\
-\textit{Médiane des degrés} : 15.5 \\
-\textit{75e quantile des degrés} : 21.0 \\
-\textit{90e quantile des degrés} : 26.0 \\
-\textit{Nœuds à haut degré} : [80, 311, 95, 223, 63, 134, 804] \\
-
-\noindent
-Et pour le graphe de 2015, nous avons :  \\
-\textit{Moyenne des degrés} : 39.39 \\
-\textit{Médiane des degrés} : 39.0 \\
-\textit{75e quantile des degrés} : 51.0 \\
-\textit{90e quantile des degrés} : 58.0 \\
-\textit{Nœuds à haut degré} : [1362, 215, 649, 1090, 147, 77, 160, 74, 122, 741, 378, 3, 603, 884, 267, 706, 246, 882, 250, 428, 836]
-
 \subsection{Distribution du Degré}
 
 En ce qui concerne la distribution de ceux-ci, nous pouvons voir que la moyenne et la médiane du graphe de 2013 étant proches, cela suggère une distribution symétrique.
 Nous pouvons aussi voir que certains nœuds sont très connectés et cela est vérifié par le fait que le quartile 90e est plus élevé que la moyenne. Cela peut être interprété par des employés possédants un poste potentiellement plus important, socialement poussant alors à créer plus de contact avec d’autres employés. \\
 
 Ensuite, nous pouvons également voir que pour le graphe de 2015, la distribution suggérée semble être aussi symétrique. Nous pouvons aussi apercevoir que ces graphes possèdent aussi des nœuds très connectés. Cette augmentation du nombre de nœuds ainsi que le nombre de nœuds fortement connecté suggèrent probablement une simple à croissance de l’entreprise donnant lieu à plus de postes à haute importance sociale, comme des chefs d’équipe par exemple, en multipliant le nombre d’équipe présente dans la société.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/proprietebase/2013}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/proprietebase/2015}
+    \caption{Graphes des années 2013 et 2015}
+    \label{fig:2013-2015}
+\end{figure}
 
 \section{Modèle épidémiologie}
 
@@ -125,25 +113,18 @@ Maintenant, que l'introduction aux graphes est terminée, essayons de mettre à 
 
 Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux noeuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société. En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents noeuds fortement connectés. Nous pouvons voir à travers cette illustration que les noeuds sont très souvent proche du centre du graphe de pars leurs forte connexion avec le reste des noeuds.
 
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=15cm]{assets/epidemiologie/centre_propa_2013}
-    \caption{Centres de propagations du Graphe 1 année 2013}
-    \label{fig:centre_propa_2013}
-\end{figure}
-
-\clearpage
-\newpage
 En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents noeuds fortement connectés. Ici, l'illustration met évidence que ces noeuds fortement connecté se situent également proche du centre de la majorité des connexion.
 
+Il est intéressant de noter que cette disposition renforce l'idée que les nœuds centraux jouent un rôle clé dans la dynamique des connexions au sein de l'ensemble du réseau.
+
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/epidemiologie/centre_propa_2015}
-    \caption{Centres de propagations du Graphe 1 année 2015}
-    \label{fig:centre_propa_2015}
+    \includegraphics[width=0.45\textwidth]{assets/epidemiologie/centre_propa_2013}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/epidemiologie/centre_propa_2015}
+    \caption{Centres de propagations pour les années 2013 et 2015}
+    \label{fig:centre_propa_parallel}
 \end{figure}
-
-Il est intéressant de noter que cette disposition renforce l'idée que les nœuds centraux jouent un rôle clé dans la dynamique des connexions au sein de l'ensemble du réseau.
 
 \clearpage
 \newpage
@@ -190,11 +171,11 @@ Afin de détecter les communautés au sein de l'entreprise, notre approche initi
 
 Pour cette raison, nous avons créé un graphique en barres (barplot) illustrant la distribution des degrés pour chaque nœud (employé). Ce graphique permet d'estimer dans un premier temps si le graphe présente des nœuds avec des degrés élevés. Nous débutons cette analyse en visualisant le graphe de l'année 2013, qui compte moins d'employés. \\
 
-Dans ce premier graphe, nous observons une propension marquée à avoir un degré compris entre 15, avec 13 nœuds. Cependant, nous constatons également que le nombre de nœuds ayant moins de 10 degrés est relativement faible. Il est important de noter l'existence de nœuds avec plus de 30 degrés, suggérant probablement qu'il s'agit de nœuds fortement connectés occupant des postes à haute responsabilité, comme mentionné précédemment. La moyenne des degrés s'élève à 16.41.
+Dans ce premier graphe, nous observons une propension marquée à avoir un degré de 15, avec 13 nœuds. Cependant, nous constatons également que le nombre de nœuds ayant moins de 10 degrés est relativement faible. Il est important de noter l'existence de nœuds avec plus de 30 degrés, suggérant probablement qu'il s'agit de nœuds fortement connectés occupant des postes à haute responsabilité, comme mentionné précédemment. La moyenne des degrés s'élève à 16.41.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/communaute/distribution_deg_2013}
+    \includegraphics[width=0.65\textwidth]{assets/communaute/distribution_deg_2013}
     \caption{Distribution des degrés pour le graphe 1 de l'année 2013}
     \label{fig:distribution_deg_2013}
 \end{figure}
@@ -203,11 +184,10 @@ Dans le deuxième graphe représentant l'année 2015, nous observons une moyenne
 
 Ces observations suggèrent une amélioration potentielle de l'entreprise, tant en termes d'expansion du nombre d'employés que de qualité organisationnelle de la communication entre ces employés.
 
-\clearpage
-\newpage
+
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/communaute/distribution_deg_2015}
+    \includegraphics[width=0.65\textwidth]{assets/communaute/distribution_deg_2015}
     \caption{Distribution des degrés pour le graphe 1 de l'année 2015}
     \label{fig:distribution_deg_2015}
 \end{figure}
@@ -218,83 +198,22 @@ Dans l'optique de déterminer de manière définitive les communautés au sein d
 
 Suite à la génération du graphe pour l'année 2013, nous avons identifié quatre communautés distinctes au sein de notre population globale. À première vue, il semblait que ces communautés correspondaient à des départements spécifiques au sein de l'entreprise, à savoir SFLE, DSE, SRH, DMCT et DISQ. \\
 
-Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés. Voici un aperçu détaillé : \\
+Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés comme des membres de DISQ qui se retrouvent avec des DMCT et DSE dans la première communauté. 
 
-\noindent
-Communauté 1 : \\
-Département DSE : [513, 132, 779, 267, 15, 272, 786, 662, 791, 29, 164, 39, 939, 172, 819, 181, 311, 56, 194, 196, 205, 79, 987, 603, 222, 95, 223, 494, 496, 113, 242, 120, 123, 765] \\
-Département DMCT : [105] \\
-Département DISQ : [253] \\
-
-\noindent
-Communauté 2 : \\
-Département DMCT : [66, 771, 134, 335, 80, 17, 784, 275, 209, 21, 285, 804, 101, 102, 938, 875, 431, 240, 48, 50, 179, 118, 119, 762, 511] \\
-
-\noindent
-Communauté 3 : \\
-Département SRH : [448, 481, 153, 709, 122, 492, 271, 499, 533, 150, 601, 154, 63] \\
-Département SFLE : [213, 87] \\
-
-\noindent
-Communauté 4 : \\
-Département DISQ : [131, 265, 778, 268, 845, 273, 210, 35, 743, 751, 184, 185, 826, 255] \\
-Département SFLE : [211, 116] \\
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/communaute/communaute_2013.png}
-    \caption{Graphes des différentes communautés pour l'année 2013}
-    \label{fig:communaute_2013}
+    \includegraphics[width=0.45\textwidth]{assets/communaute/communaute_2013.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/communaute/communaute_2015.png}
+    \caption{Graphes des différentes communautés pour les années 2013 et 2015}
+    \label{fig:communaute_parallel}
 \end{figure}
+
 
 Concernant l'année 2015, les résultats ont été un peu plus surprenants. Bien que nous ayons toujours identifié 4 communautés, la présence de différents départements est cette fois plus marquée. On aurait pu penser à des employés "hybrides", couvrant deux départements, mais cela ne semble pas être le cas. \\
 
 En effet, on observe une augmentation du nombre de départements, passant de 4 en 2013 à 12 en 2015, à savoir SFLE, DMI, DST, DCAR, DG, SSI, SDOC, SCOM, DMCT, DISQ, DSE, SRH. Une hypothèse plausible serait que ces différentes communautés représentent des équipes travaillant sur divers projets. \\
-
-\noindent
-Nombre total de communautés détectées : 4 \\
-
-\noindent
-Communauté 1 : \\
-Département SFLE : [1, 1414, 413, 432, 200, 461, 977, 475, 874, 496, 117] \\
-Département DMI : [3, 434, 574, 1090, 491, 242] \\
-Département DST : [387, 649, 779, 401, 147, 426, 1323, 429, 954, 580, 582, 71, 77, 1362, 725, 215, 603, 1245, 346, 487, 488, 1392] \\
-Département DCAR : [656, 20, 1204, 1209, 720, 1492, 89, 220, 97, 741, 886, 118, 378] \\
-Département DG : [290] \\
-Département SSI : [164, 55, 985] \\
-Département SDOC : [435, 440, 106] \\
-Département SCOM : [181, 441, 1260] \\
-
-\noindent
-Communauté 2 : \\
-Département DMCT : [257, 637, 784, 533, 790, 407, 793, 923, 285, 39, 809, 939, 43, 59, 702, 63, 706, 72, 80, 466, 339, 211, 468, 219, 866, 871, 753, 246, 889, 122, 894] \\
-Département DISQ : [520, 267, 525, 270, 660, 420, 428, 47, 691, 445, 836, 198, 213, 343, 478, 366, 119, 253] \\
-Département DSE : [38] \\
-Département SFLE : [197, 626] \\
-Département DG : [502] \\
-
-\noindent
-Communauté 3 : \\
-Département DMI : [642, 131, 259, 261, 134, 1164, 141, 909, 15, 156, 158, 159, 160, 162, 34, 165, 677, 295, 425, 1067, 178, 54, 694, 183, 1342, 959, 447, 193, 62, 453, 74, 460, 333, 205, 79, 464, 1238, 859, 353, 99, 615, 489, 236, 751, 880, 498, 372, 884, 120, 250, 763] \\
-Département SCOM : [14, 544] \\
-Département SFLE : [653] \\
-Département DST : [27] \\
-Département SSI : [173, 970, 628] \\
-Département SDOC : [245] \\
-
-\noindent
-Communauté 4 : \\
-Département DSE : [513, 771, 638, 908, 269, 527, 275, 921, 674, 424, 172, 184, 577, 322, 1485, 465, 210, 854, 477, 222, 867, 486, 743, 504, 882, 374, 248, 634, 252, 893, 510] \\
-Département SRH : [650, 272, 18, 531, 797, 845, 744, 232, 621] \\
-Département SCOM : [778, 998] \\
-Département SSI : [110] \\
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=15cm]{assets/communaute/communaute_2015.png}
-    \caption{Graphes des différentes communautés pour l'année 2015}
-    \label{fig:communaute_2015}
-\end{figure}
 
 \subsection{Analyse des Communautés}
 
@@ -308,7 +227,7 @@ Comme illustré dans le graphique ci-dessous (année 2013), nous observons cinq 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/communaute/communaute_communication_2013.png}
+    \includegraphics[width=0.65\textwidth]{assets/communaute/communaute_communication_2013.png}
     \caption{Graphes représentant la communication inter et intra départements pour l'année 2013}
     \label{fig:communaute_communication_2013}
 \end{figure}
@@ -317,7 +236,7 @@ Cependant, en examinant le graphe ci-dessous pour l'année 2015, nous constatons
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/communaute/communaute_communication_2015.png}
+    \includegraphics[width=0.65\textwidth]{assets/communaute/communaute_communication_2015.png}
     \caption{Graphes représentant la communication inter et intra départements pour l'année 2015}
     \label{fig:communaute_communication_2015}
 \end{figure}
@@ -328,32 +247,31 @@ Dans cette section, nous allons explorer l’importance de certains points dans 
 
 \subsection{Centralité}
 
-En effet, lorsque nous évoquons la centralité, nous faisons référence à la centralité de proximité entre les différents employés de l'entreprise. Pour illustrer cela, nous avons créé les graphes correspondant aux années 2013 et 2015. \\
+En effet, lorsque nous évoquons la centralité, nous faisons référence à la centralité d'intermédiarité entre les différents employés de l'entreprise. Pour illustrer cela, nous avons créé les graphes correspondant aux années 2013 et 2015. \\
 
-Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction de ses connexions sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=15cm]{assets/centralite/deg_centralite_2013.png}
-    \caption{Graphes représentant la centralité pour l'année 2013}
-    \label{fig:deg_centralite_2013}
-\end{figure}
+Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction du nombres de fois que le noeuds est sur le chemin le plus cours lors de communication sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
 
 En revanche, dans le graphique de l'année 2015, une diversité de nœuds présentant une centralité importante est observée. En effet, la présence de nœuds très foncés se multiplie.
 
-\clearpage
+Nous avons également exploité d'autres graphiques pour confirmer la centralité des points mentionnés précédemment. Nous avons pris en compte diverses mesures telles que la centralité de proximité, la centralité d'intermédiarité, la centralité de vecteur propre, et enfin le coefficient de clustering. Toutes ces mesures semblent converger vers les mêmes résultats.
+
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=15cm]{assets/centralite/deg_centralite_2015.png}
-    \caption{Graphes représentant la centralité pour l'année 2015}
-    \label{fig:deg_centralite_2015}
+    \includegraphics[width=0.45\textwidth]{assets/centralite/between_centralite_2013.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/centralite/between_centralite_2015.png}
+    \caption{Graphes représentant la centralité pour les années 2013 et 2015}
+    \label{fig:deg_centralite_parallel}
 \end{figure}
-
-Nous avons également exploité d'autres graphiques pour confirmer la centralité des points mentionnés précédemment. Nous avons pris en compte diverses mesures telles que la centralité de proximité, la centralité d'intermédiarité, la centralité de vecteur propre, et enfin le coefficient de clustering. Toutes ces mesures semblent converger vers les mêmes résultats.
 
 \subsection{Point de Contrôle}
 
+
 Dans l’objectif de déterminer les noeuds jouant un rôle important dans la dynamique communicationnel des graphes, nous avons mené une étude sur les noeuds étant ce qu’on appelle un point de contrôle. Effectivement, un point de contrôle est un noeuds stratégique utile pour le contrôle d’information mais aussi pour la prévention de la propagation, dans le cas de notre épidémie évoqué dans une section antérieur, par exemple.
+
+Les analyses antérieures mettent en évidence la centralité de certains nœuds dans la dynamique sociale de l'entreprise. Ces nœuds, au cœur des interactions sociales, semblent correspondre à des postes à haute responsabilité tels que des CEO ou des chefs de projet.
+
+Par conséquent, la circulation des informations se fait principalement à travers ces nœuds centraux. Leur élimination du graphe rendrait la communication au sein de l'entreprise plus complexe, soulignant ainsi leur rôle crucial dans la dynamique communicationnelle.
 
 
 \textcolor{red}{Quels type d'étude on réalise pour ça ? On prouve en lien avec les centralités ?}
