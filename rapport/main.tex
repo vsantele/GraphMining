@@ -78,6 +78,7 @@ Dans cette section, nous allons examiner les caractéristiques fondamentales des
 
 \subsection{Noeuds et arêtes}
 
+\noindent
 Nous allons commencer par explorer les nœuds et arêtes de ces deux graphes. \\
 
 Effectivement, pour chaque graphe, tous les nœuds présents dans ces graphes représentent un employé et chaque arête de ces graphes représente un contact entre deux employés. \\
@@ -90,21 +91,24 @@ Ainsi, notre exploration dévoile non seulement des chiffres et des liens, mais 
 
 \subsection{Degré}
 
-Maintenant explorant les degrés de ces deux graphes \\
+\noindent
+Maintenant explorant les degrés de ces deux graphes. \\
 
+\noindent
 Pour le graphe de 2013, nous avons : \\
-Moyenne des degrés : 16.41 \\
-Médiane des degrés : 15.5 \\
-75e quantile des degrés : 21.0 \\
-90e quantile des degrés : 26.0 \\
-Nœuds à haut degré : [80, 311, 95, 223, 63, 134, 804] \\
+\textit{Moyenne des degrés} : 16.41 \\
+\textit{Médiane des degrés} : 15.5 \\
+\textit{75e quantile des degrés} : 21.0 \\
+\textit{90e quantile des degrés} : 26.0 \\
+\textit{Nœuds à haut degré} : [80, 311, 95, 223, 63, 134, 804] \\
 
+\noindent
 Et pour le graphe de 2015, nous avons :  \\
-Moyenne des degrés : 39.39 \\
-Médiane des degrés : 39.0 \\
-75e quantile des degrés : 51.0 \\
-90e quantile des degrés : 58.0 \\
-Nœuds à haut degré : [1362, 215, 649, 1090, 147, 77, 160, 74, 122, 741, 378, 3, 603, 884, 267, 706, 246, 882, 250, 428, 836]
+\textit{Moyenne des degrés} : 39.39 \\
+\textit{Médiane des degrés} : 39.0 \\
+\textit{75e quantile des degrés} : 51.0 \\
+\textit{90e quantile des degrés} : 58.0 \\
+\textit{Nœuds à haut degré} : [1362, 215, 649, 1090, 147, 77, 160, 74, 122, 741, 378, 3, 603, 884, 267, 706, 246, 882, 250, 428, 836]
 
 \subsection{Distribution du Degré}
 
@@ -145,6 +149,7 @@ Il est intéressant de noter que cette disposition renforce l'idée que les nœu
 \newpage
 \subsection{Seuils de Propagation}
 
+\noindent
 Dans le but de propager l'épidémie, nous avons défini deux paramètre :
 \begin{itemize}
     \item beta : Taux de transmission, qui détermine la probabilité qu'un nœud susceptible devienne infecté lorsqu'il est en contact avec un nœud infecté.
@@ -215,28 +220,24 @@ Suite à la génération du graphe pour l'année 2013, nous avons identifié qua
 
 Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés. Voici un aperçu détaillé : \\
 
-Communauté 1 :
-
-Département DSE : [513, 132, 779, 267, 15, 272, 786, 662, 791, 29, 164, 39, 939, 172, 819, 181, 311, 56, 194, 196, 205, 79, 987, 603, 222, 95, 223, 494, 496, 113, 242, 120, 123, 765]
-
-Département DMCT : [105]
-
+\noindent
+Communauté 1 : \\
+Département DSE : [513, 132, 779, 267, 15, 272, 786, 662, 791, 29, 164, 39, 939, 172, 819, 181, 311, 56, 194, 196, 205, 79, 987, 603, 222, 95, 223, 494, 496, 113, 242, 120, 123, 765] \\
+Département DMCT : [105] \\
 Département DISQ : [253] \\
 
-Communauté 2 :
-
+\noindent
+Communauté 2 : \\
 Département DMCT : [66, 771, 134, 335, 80, 17, 784, 275, 209, 21, 285, 804, 101, 102, 938, 875, 431, 240, 48, 50, 179, 118, 119, 762, 511] \\
 
-Communauté 3 :
-
-Département SRH : [448, 481, 153, 709, 122, 492, 271, 499, 533, 150, 601, 154, 63]
-
+\noindent
+Communauté 3 : \\
+Département SRH : [448, 481, 153, 709, 122, 492, 271, 499, 533, 150, 601, 154, 63] \\
 Département SFLE : [213, 87] \\
 
-Communauté 4 :
-
-Département DISQ : [131, 265, 778, 268, 845, 273, 210, 35, 743, 751, 184, 185, 826, 255]
-
+\noindent
+Communauté 4 : \\
+Département DISQ : [131, 265, 778, 268, 845, 273, 210, 35, 743, 751, 184, 185, 826, 255] \\
 Département SFLE : [211, 116] \\
 
 \begin{figure}[!h]
@@ -250,60 +251,42 @@ Concernant l'année 2015, les résultats ont été un peu plus surprenants. Bien
 
 En effet, on observe une augmentation du nombre de départements, passant de 4 en 2013 à 12 en 2015, à savoir SFLE, DMI, DST, DCAR, DG, SSI, SDOC, SCOM, DMCT, DISQ, DSE, SRH. Une hypothèse plausible serait que ces différentes communautés représentent des équipes travaillant sur divers projets. \\
 
+\noindent
 Nombre total de communautés détectées : 4 \\
 
-Communauté 1 :
-
-Département SFLE : [1, 1414, 413, 432, 200, 461, 977, 475, 874, 496, 117]
-
-Département DMI : [3, 434, 574, 1090, 491, 242]
-
-Département DST : [387, 649, 779, 401, 147, 426, 1323, 429, 954, 580, 582, 71, 77, 1362, 725, 215, 603, 1245, 346, 487, 488, 1392]
-
-Département DCAR : [656, 20, 1204, 1209, 720, 1492, 89, 220, 97, 741, 886, 118, 378]
-
-Département DG : [290]
-
-Département SSI : [164, 55, 985]
-
-Département SDOC : [435, 440, 106]
-
+\noindent
+Communauté 1 : \\
+Département SFLE : [1, 1414, 413, 432, 200, 461, 977, 475, 874, 496, 117] \\
+Département DMI : [3, 434, 574, 1090, 491, 242] \\
+Département DST : [387, 649, 779, 401, 147, 426, 1323, 429, 954, 580, 582, 71, 77, 1362, 725, 215, 603, 1245, 346, 487, 488, 1392] \\
+Département DCAR : [656, 20, 1204, 1209, 720, 1492, 89, 220, 97, 741, 886, 118, 378] \\
+Département DG : [290] \\
+Département SSI : [164, 55, 985] \\
+Département SDOC : [435, 440, 106] \\
 Département SCOM : [181, 441, 1260] \\
 
-Communauté 2 :
-
-Département DMCT : [257, 637, 784, 533, 790, 407, 793, 923, 285, 39, 809, 939, 43, 59, 702, 63, 706, 72, 80, 466, 339, 211, 468, 219, 866, 871, 753, 246, 889, 122, 894]
-
-Département DISQ : [520, 267, 525, 270, 660, 420, 428, 47, 691, 445, 836, 198, 213, 343, 478, 366, 119, 253]
-
-Département DSE : [38]
-
-Département SFLE : [197, 626]
-
+\noindent
+Communauté 2 : \\
+Département DMCT : [257, 637, 784, 533, 790, 407, 793, 923, 285, 39, 809, 939, 43, 59, 702, 63, 706, 72, 80, 466, 339, 211, 468, 219, 866, 871, 753, 246, 889, 122, 894] \\
+Département DISQ : [520, 267, 525, 270, 660, 420, 428, 47, 691, 445, 836, 198, 213, 343, 478, 366, 119, 253] \\
+Département DSE : [38] \\
+Département SFLE : [197, 626] \\
 Département DG : [502] \\
 
-Communauté 3 :
-
-Département DMI : [642, 131, 259, 261, 134, 1164, 141, 909, 15, 156, 158, 159, 160, 162, 34, 165, 677, 295, 425, 1067, 178, 54, 694, 183, 1342, 959, 447, 193, 62, 453, 74, 460, 333, 205, 79, 464, 1238, 859, 353, 99, 615, 489, 236, 751, 880, 498, 372, 884, 120, 250, 763]
-
-Département SCOM : [14, 544]
-
-Département SFLE : [653]
-
-Département DST : [27]
-
-Département SSI : [173, 970, 628]
-
+\noindent
+Communauté 3 : \\
+Département DMI : [642, 131, 259, 261, 134, 1164, 141, 909, 15, 156, 158, 159, 160, 162, 34, 165, 677, 295, 425, 1067, 178, 54, 694, 183, 1342, 959, 447, 193, 62, 453, 74, 460, 333, 205, 79, 464, 1238, 859, 353, 99, 615, 489, 236, 751, 880, 498, 372, 884, 120, 250, 763] \\
+Département SCOM : [14, 544] \\
+Département SFLE : [653] \\
+Département DST : [27] \\
+Département SSI : [173, 970, 628] \\
 Département SDOC : [245] \\
 
-Communauté 4 :
-
-Département DSE : [513, 771, 638, 908, 269, 527, 275, 921, 674, 424, 172, 184, 577, 322, 1485, 465, 210, 854, 477, 222, 867, 486, 743, 504, 882, 374, 248, 634, 252, 893, 510]
-
-Département SRH : [650, 272, 18, 531, 797, 845, 744, 232, 621]
-
-Département SCOM : [778, 998]
-
+\noindent
+Communauté 4 : \\
+Département DSE : [513, 771, 638, 908, 269, 527, 275, 921, 674, 424, 172, 184, 577, 322, 1485, 465, 210, 854, 477, 222, 867, 486, 743, 504, 882, 374, 248, 634, 252, 893, 510] \\
+Département SRH : [650, 272, 18, 531, 797, 845, 744, 232, 621] \\
+Département SCOM : [778, 998] \\
 Département SSI : [110] \\
 
 \begin{figure}[!h]
@@ -358,6 +341,7 @@ Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction 
 
 En revanche, dans le graphique de l'année 2015, une diversité de nœuds présentant une centralité importante est observée. En effet, la présence de nœuds très foncés se multiplie.
 
+\clearpage
 \begin{figure}[!h]
     \centering
     \includegraphics[width=15cm]{assets/centralite/deg_centralite_2015.png}
