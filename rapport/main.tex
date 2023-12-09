@@ -12,48 +12,48 @@
 
 
 \begin{titlepage}
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-\center
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+    \center
 
-\includegraphics[width=6cm]{assets/logo_unamur}
-\\[2cm]
+    \includegraphics[width=6cm]{assets/logo_unamur}
+    \\[2cm]
 
-\textsc{\LARGE Université de Namur}
-\\[2cm]
+    \textsc{\LARGE Université de Namur}
+    \\[2cm]
 
-\textsc{\Large SDASM101 : Graph mining }
-\\[0.2cm]
+    \textsc{\Large SDASM101 : Graph mining }
+    \\[0.2cm]
 
-\HRule
-\\[0.4cm]
-\textsc{\huge Projet : Analyse des données}
-\\[0.2cm]
-\HRule
-\\[0.4cm]
-{\large 2023 - 2024}
-\\[8.2cm]
+    \HRule
+    \\[0.4cm]
+    \textsc{\huge Projet : Analyse des données}
+    \\[0.2cm]
+    \HRule
+    \\[0.4cm]
+    {\large 2023 - 2024}
+    \\[8.2cm]
 
-\begin{minipage}{0.5\textwidth}
-	\begin{flushleft}
-		\emph{Auteur}
-		\\
-		\textsc{Lambois} Emeric
-		\\
-		\textsc{Santelé} Victor
-		\\
-		\textsc{Smith} Jonathan
-		\\
-	\end{flushleft}
-\end{minipage}
-~
-\begin{minipage}{0.4\textwidth}
-	\begin{flushright}
-		\emph{Professeur}
-		\\
-		\textsc{Salnikov} Vsevolod
-		\\
-	\end{flushright}
-\end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushleft}
+            \emph{Auteur}
+            \\
+            \textsc{Lambois} Emeric
+            \\
+            \textsc{Santelé} Victor
+            \\
+            \textsc{Smith} Jonathan
+            \\
+        \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushright}
+            \emph{Professeur}
+            \\
+            \textsc{Salnikov} Vsevolod
+            \\
+        \end{flushright}
+    \end{minipage}
 
 \end{titlepage}
 
@@ -92,9 +92,9 @@ Ainsi, notre exploration dévoile non seulement des chiffres et des liens, mais 
 \subsection{Distribution du Degré}
 
 En ce qui concerne la distribution de ceux-ci, nous pouvons voir que la moyenne et la médiane du graphe de 2013 étant proches, cela suggère une distribution symétrique.
-Nous pouvons aussi voir que certains nœuds sont très connectés et cela est vérifié par le fait que le quartile 90e est plus élevé que la moyenne. Cela peut être interprété par des employés possédants un poste potentiellement plus important, socialement poussant alors à créer plus de contact avec d’autres employés. \\
+Nous pouvons aussi voir que certains nœuds sont très connectés et cela est vérifié par le fait que le quartile 90e est plus élevé que la moyenne. Cela peut être interprété par des employés possédant un poste potentiellement plus important, socialement poussant alors à créer plus de contact avec d’autres employés. \\
 
-Ensuite, nous pouvons également voir que pour le graphe de 2015, la distribution suggérée semble être aussi symétrique. Nous pouvons aussi apercevoir que ces graphes possèdent aussi des nœuds très connectés. Cette augmentation du nombre de nœuds ainsi que le nombre de nœuds fortement connecté suggèrent probablement une simple à croissance de l’entreprise donnant lieu à plus de postes à haute importance sociale, comme des chefs d’équipe par exemple, en multipliant le nombre d’équipe présente dans la société.
+Ensuite, nous pouvons également voir que pour le graphe de 2015, la distribution suggérée semble être aussi symétrique. Nous pouvons aussi apercevoir que ces graphes possèdent aussi des nœuds très connectés. Cette augmentation du nombre de nœuds ainsi que le nombre de nœuds fortement connecté suggèrent probablement une simple à croissance de l’entreprise donnant lieu à plus de postes à haute importance sociale, comme des chefs d’équipe par exemple, en multipliant le nombre d’équipes présente dans la société.
 
 \begin{figure}[!h]
     \centering
@@ -111,9 +111,9 @@ Maintenant, que l'introduction aux graphes est terminée, essayons de mettre à 
 
 \subsection{Centres de Propagation}
 
-Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux noeuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société. En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents noeuds fortement connectés. Nous pouvons voir à travers cette illustration que les noeuds sont très souvent proche du centre du graphe de pars leurs forte connexion avec le reste des noeuds.
+Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux noeuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société. En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents noeuds fortement connectés. Nous pouvons voir à travers cette illustration que les noeuds sont très souvent proches du centre du graphe de part leurs forte connexion avec le reste des noeuds.
 
-En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents noeuds fortement connectés. Ici, l'illustration met évidence que ces noeuds fortement connecté se situent également proche du centre de la majorité des connexion.
+En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents noeuds fortement connectés. Ici, l'illustration met en évidence que ces noeuds fortement connectés se situent également proche du centre de la majorité des connexions.
 
 Il est intéressant de noter que cette disposition renforce l'idée que les nœuds centraux jouent un rôle clé dans la dynamique des connexions au sein de l'ensemble du réseau.
 
@@ -131,7 +131,7 @@ Il est intéressant de noter que cette disposition renforce l'idée que les nœu
 \subsection{Seuils de Propagation}
 
 \noindent
-Dans le but de propager l'épidémie, nous avons défini deux paramètre :
+Dans le but de propager l'épidémie, nous avons défini deux paramètres :
 \begin{itemize}
     \item beta : Taux de transmission, qui détermine la probabilité qu'un nœud susceptible devienne infecté lorsqu'il est en contact avec un nœud infecté.
     \item gamma : Taux de récupération, qui indique la probabilité qu'un nœud infecté récupère et devienne immunisé. \\
@@ -139,16 +139,16 @@ Dans le but de propager l'épidémie, nous avons défini deux paramètre :
 
 Ces deux paramètres servent simplement de taux d'influences pour le comportement du modèle épidémique. Ajuster ces valeurs permet de changer la propagation de la maladie.
 
-Nous les avons ajusté à :
+Nous les avons ajustés à :
 \begin{itemize}
     \item beta = 0.3 (Taux de transmission)
     \item gamma = 0.1 (Taux de récupération)
 \end{itemize}
 
 
-Nous avons décidé de mettre à l'épreuve cette société en y incluant un collaborateurs infecté afin de voir comment se propagerait une épidémie. C'est pourquoi, nous avons créé un petit scénario pour illustrer cela. \\
+Nous avons décidé de mettre à l'épreuve cette société en y incluant un collaborateur infecté afin de voir comment se propagerait une épidémie. C'est pourquoi, nous avons créé un petit scénario pour illustrer cela. \\
 
-Lors d'un voyage d'affaire contenant l'intégralité des personnes à haute responsabilité dans l'entreprise, l'un des collaborateurs, sans le savoir, a contracté un virus insidieux pendant son voyage. À son retour au bureau, les premiers symptômes sont apparus, mais malheureusement, la nature légère des symptômes a conduit à un sous-estimation de la situation. Le virus, invisible et trompeur, s'est rapidement propagé au sein des bureaux de l'entreprise. \\
+Lors d'un voyage d'affaires contenant l'intégralité des personnes à haute responsabilité dans l'entreprise, l'un des collaborateurs, sans le savoir, a contracté un virus insidieux pendant son voyage. À son retour au bureau, les premiers symptômes sont apparus, mais malheureusement, la nature légère des symptômes a conduit à une sous-estimation de la situation. Le virus, invisible et trompeur, s'est rapidement propagé au sein des bureaux de l'entreprise. \\
 
 Les espaces de travail ouverts, les salles de réunion animées et les pauses-café conviviales ont été des terrains fertiles pour la transmission du virus. En un rien de temps, plusieurs employés ont été touchés, créant un climat d'incertitude et de préoccupation parmi les équipes.
 
@@ -177,7 +177,7 @@ Dans ce premier graphe, nous observons une propension marquée à avoir un degr�
     \label{fig:distribution_deg_2013}
 \end{figure}
 
-Dans le deuxième graphe représentant l'année 2015, nous observons une moyenne presque deux fois plus élevée, soulignant une augmentation significative du nombre de connexions entre les employés. De plus, le degré maximal atteint 84, dépassant le maximum de 44 observé précédemment. Le nombre d'employés avec plus de 30 degrés est également majoritaire. \\
+Dans le deuxième graphe représentant l'année 2015, nous observons une moyenne presque deux fois plus élevée, soulignant une augmentation significative du nombre de connexions entre les employés. De plus, le degré maximal atteint 84, dépassant le maximum de 44 observés précédemment. Le nombre d'employés avec plus de 30 degrés est également majoritaire. \\
 
 Ces observations suggèrent une amélioration potentielle de l'entreprise, tant en termes d'expansion du nombre d'employés que de qualité organisationnelle de la communication entre ces employés.
 
@@ -195,7 +195,7 @@ Dans l'optique de déterminer de manière définitive les communautés au sein d
 
 Suite à la génération du graphe pour l'année 2013, nous avons identifié quatre communautés distinctes au sein de notre population globale. À première vue, il semblait que ces communautés correspondaient à des départements spécifiques au sein de l'entreprise, à savoir SFLE, DSE, SRH, DMCT et DISQ. \\
 
-Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés comme des membres de DISQ qui se retrouvent avec des DMCT et DSE dans la première communauté. 
+Cependant, un examen plus approfondi a révélé une nuance intéressante. Certains employés d'autres départements se retrouvent également dans certaines communautés comme des membres de DISQ qui se retrouvent avec des DMCT et DSE dans la première communauté.
 
 
 \begin{figure}[!h]
@@ -216,7 +216,7 @@ En effet, on observe une augmentation du nombre de départements, passant de 4 e
 
 En effet, comme mentionné précédemment, il semble que les communautés ne représentent pas nécessairement la répartition des employés dans les différents départements, contrairement à ce que pourrait laisser penser le graphe de 2013. Le graphique de 2015 révèle plutôt une diversité plus marquée dans la distribution des départements au sein des communautés. \\
 
-L'hypothèse la plus plausible serait alors une répartition des employés au sein des différentes équipes de projet, composées de plusieurs départements. Cela pourrait être le cas, par exemple, avec des départements informatiques, économiques et juridiques travaillant en collaboration sur un projet complexe. \\
+L'hypothèse la plus plausible serait alors une répartition des employés au sein des différentes équipes de projets, composées de plusieurs départements. Cela pourrait être le cas, par exemple, avec des départements informatiques, économiques et juridiques travaillant en collaboration sur un projet complexe. \\
 
 Nous avons également examiné l'évolution des communications au sein des différents départements pour évaluer si l'organisation communicationnelle a connu des changements. \\
 
@@ -246,7 +246,7 @@ Dans cette section, nous allons explorer l’importance de certains points dans 
 
 En effet, lorsque nous évoquons la centralité, nous faisons référence à la centralité d'intermédiarité entre les différents employés de l'entreprise. Pour illustrer cela, nous avons créé les graphes correspondant aux années 2013 et 2015. \\
 
-Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction du nombres de fois que le noeuds est sur le chemin le plus cours lors de communication sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
+Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction du nombre de fois que le noeuds est sur le chemin le plus cours lors de communications sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
 
 En revanche, dans le graphique de l'année 2015, une diversité de nœuds présentant une centralité importante est observée. En effet, la présence de nœuds très foncés se multiplie.
 
@@ -272,11 +272,11 @@ Par conséquent, la circulation des informations se fait principalement à trave
 
 \section{conclusion}
 
-En conclusion, la réalisation de ce projet nous a permis d’aborder les concepts du cours de « Graph Mining » à travers le sujet de notre choix. Pour réaliser à bien le projet, il nous a été demandé de choisir 2 datasets que nous devions comparer entre eux en utilisant les techniques vues aux cours. Effectivement, notre groupe à décidé de choisir 2 datasets démontrant la communication au sein d’une entreprise. Le premier dataset montre la communication de l’année 2013 et le second dataset montre l’année 2015. 
+En conclusion, la réalisation de ce projet nous a permis d’aborder les concepts du cours de « Graph Mining » à travers le sujet de notre choix. Pour réaliser à bien le projet, il nous a été demandé de choisir 2 datasets que nous devions comparer entre eux en utilisant les techniques vues aux cours. Effectivement, notre groupe a décidé de choisir 2 datasets démontrant la communication au sein d’une entreprise. Le premier dataset montre la communication de l’année 2013 et le second dataset montre l’année 2015.
 
-Durant notre analyse de ce projet, nous avons pu remarquer divers éléments tels que l’importance de certains nœuds insoupçonnés ou alors la présence de sous-population au sein de la population des employés de l’entreprise. 
+Durant notre analyse de ce projet, nous avons pu remarquer divers éléments tels que l’importance de certains nœuds insoupçonnés ou alors la présence de sous-population au sein de la population des employés de l’entreprise.
 
-Ce projet, c’est révélé très enrichissant, car cela nous a permis d’apprendre des techniques que nous n’aurions peut-être jamais utilisées sans ce projet. Effectivement, cela a été très amusant d’effectuer les comparaisons avec des graphes très coloré et très différent de ce que nous utilisons habituellement.
+Ce projet, c’est révéler très enrichissant, car cela nous a permis d’apprendre des techniques que nous n’aurions peut-être jamais utilisées sans ce projet. Effectivement, cela a été très amusant d’effectuer les comparaisons avec des graphes très colorés et très différent de ce que nous utilisons habituellement.
 
 
 \end{document}
