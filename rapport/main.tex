@@ -76,7 +76,7 @@ En tant que deuxième ensemble de données, nous avons sélectionné les contact
 
 Dans cette section, nous allons examiner les caractéristiques fondamentales des deux graphes que nous avons sélectionnés.
 
-\subsection{Noeuds et arêtes}
+\subsection{Nœuds et arêtes}
 
 \noindent
 Nous allons commencer par explorer les nœuds et arêtes de ces deux graphes. \\
@@ -111,9 +111,9 @@ Maintenant, que l'introduction aux graphes est terminée, essayons de mettre à 
 
 \subsection{Centres de Propagation}
 
-Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux noeuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société. En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents noeuds fortement connectés. Nous pouvons voir à travers cette illustration que les noeuds sont très souvent proches du centre du graphe de part leurs forte connexion avec le reste des noeuds.
+Commençons par définir les centres de propagation. Dans nos graphes, ces centres correspondent en réalité aux nœuds fortement connectés, ceux qui présentent le plus haut degré de connexion. Comme mentionné précédemment, il est possible que ces nœuds représentent des postes à haute responsabilité au sein de la société. En ce qui concerne le premier graphe (Année 2013), la figure ci-dessous illustre les différents nœuds fortement connectés. Nous pouvons voir à travers cette illustration que les nœuds sont très souvent proches du centre du graphe de part leurs forte connexion avec le reste des nœuds.
 
-En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents noeuds fortement connectés. Ici, l'illustration met en évidence que ces noeuds fortement connectés se situent également proche du centre de la majorité des connexions.
+En ce qui concerne le deuxième graphe (Année 2015), la figure ci-dessous illustre les différents nœuds fortement connectés. Ici, l'illustration met en évidence que ces nœuds fortement connectés se situent également proche du centre de la majorité des connexions.
 
 Il est intéressant de noter que cette disposition renforce l'idée que les nœuds centraux jouent un rôle clé dans la dynamique des connexions au sein de l'ensemble du réseau.
 
@@ -154,9 +154,9 @@ Les espaces de travail ouverts, les salles de réunion animées et les pauses-ca
 
 Dans le but de simuler la propagation, nous avons utilisé le modèle SIR.
 
-Pour la simulation, nous avons pris le noeud avec le degré le plus élevé comme point de départ de l'épidémie. En effet, ce noeud est le plus susceptible de correspondre à un poste de dirigeant. \\
+Pour la simulation, nous avons pris le nœud avec le degré le plus élevé comme point de départ de l'épidémie. En effet, ce nœud est le plus susceptible de correspondre à un poste de dirigeant. \\
 
-Comme nous pouvons le voir dans les 4 premières étapes de la propagation ci-dessous (Figure \ref{fig:simu_proba_0-3}), la maladie se propage très rapidement. En effet, en seulement 4 étapes, la maladie a déjà touché une grande partie des employés. Cela est dû au fait que le noeud de départ est très connecté et que le taux de transmission est assez élevé. Tous les employés sont contaminés avant que les premiers infectés ne se rétablissent. Cela peut se comprendre parle le fait que le taux de récupération est trois fois plus faible que le taux de transmission. Puisque la contamination a commencé avec un membre du personnel qui communique avec beaucoup de personnes, la probabilité qu'au moins une personne soit contaminée augmente drastiquement. Seuls les personnes qui communiquent peu ou avec peu de personne sont épargnées jusqu'à un certain point. Les différences entre 2013 et 2015 sont minimes d'un point de vue proportionnel. Le nombre de personnes est plus important en 2015, ce qui explique la différence d'un point de vue absolu.
+Comme nous pouvons le voir dans les 4 premières étapes de la propagation ci-dessous (Figure \ref{fig:simu_proba_0-3}), la maladie se propage très rapidement. En effet, en seulement 4 étapes, la maladie a déjà touché une grande partie des employés. Cela est dû au fait que le nœud de départ est très connecté et que le taux de transmission est assez élevé. Tous les employés sont contaminés avant que les premiers infectés ne se rétablissent. Cela peut se comprendre parle le fait que le taux de récupération est trois fois plus faible que le taux de transmission. Puisque la contamination a commencé avec un membre du personnel qui communique avec beaucoup de personnes, la probabilité qu'au moins une personne soit contaminée augmente drastiquement. Seuls les personnes qui communiquent peu ou avec peu de personne sont épargnées jusqu'à un certain point. Les différences entre 2013 et 2015 sont minimes d'un point de vue proportionnel. Le nombre de personnes est plus important en 2015, ce qui explique la différence d'un point de vue absolu.
 
 \begin{figure}[!h]
     \centering
@@ -288,7 +288,7 @@ Dans cette section, nous allons explorer l’importance de certains points dans 
 
 En effet, lorsque nous évoquons la centralité, nous faisons référence à la centralité d'intermédiarité entre les différents employés de l'entreprise. Pour illustrer cela, nous avons créé les graphes correspondant aux années 2013 et 2015. \\
 
-Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction du nombre de fois que le noeuds est sur le chemin le plus cours lors de communications sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
+Ce graphique de l'année 2013 représente la centralité d'un nœud en fonction du nombre de fois que le nœuds est sur le chemin le plus cours lors de communications sociales avec d'autres employés. Ainsi, les nœuds plus grands et plus foncés correspondent à une centralité plus élevée, comme illustré par le nœud 804, par exemple.
 
 En revanche, dans le graphique de l'année 2015, une diversité de nœuds présentant une centralité importante est observée. En effet, la présence de nœuds très foncés se multiplie.
 
@@ -306,7 +306,7 @@ Nous avons également exploité d'autres graphiques pour confirmer la centralit�
 \subsection{Point de Contrôle}
 
 
-Dans l’objectif de déterminer les noeuds jouant un rôle important dans la dynamique communicationnel des graphes, nous avons mené une étude sur les noeuds étant ce qu’on appelle un point de contrôle. Effectivement, un point de contrôle est un noeuds stratégique utile pour le contrôle d’information mais aussi pour la prévention de la propagation, dans le cas de notre épidémie évoqué dans une section antérieur, par exemple.
+Dans l’objectif de déterminer les nœuds jouant un rôle important dans la dynamique communicationnel des graphes, nous avons mené une étude sur les nœuds étant ce qu’on appelle un point de contrôle. Effectivement, un point de contrôle est un nœuds stratégique utile pour le contrôle d’information mais aussi pour la prévention de la propagation, dans le cas de notre épidémie évoqué dans une section antérieur, par exemple.
 
 Les analyses antérieures mettent en évidence la centralité de certains nœuds dans la dynamique sociale de l'entreprise. Ces nœuds, au cœur des interactions sociales, semblent correspondre à des postes à haute responsabilité tels que des CEO ou des chefs de projet.
 
