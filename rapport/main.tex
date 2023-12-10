@@ -156,8 +156,55 @@ Les espaces de travail ouverts, les salles de réunion animées et les pauses-ca
 
 Dans le but de simuler la propagation, nous avons utilisé le modèle SIR.
 
-\textcolor{red}{En lien, la simu changera en fonction du déclenchement de l'épidémie}
+Pour la simulation, nous avons pris le noeud avec le degré le plus élévé comme point de départ de l'épidémie. En effet, ce noeud est le plus susceptible de correspondre à un poste de dirigeant. \\
 
+Comme nous pouvons le voir dans les 4 premières étapes de la propagation ci-dessous (Figure \ref{fig:simu_proba_0-3}), la maladie se propage très rapidement. En effet, en seulement 4 étapes, la maladie a déjà touché une grande partie des employés. Cela est dû au fait que le noeud de départ est très connecté et que le taux de transmission est assez élevé. Tous les employés sont contaminé avant que les premiers infectés ne se rétablissent. Cela peut se comprendre parle le fait que le taux de récupération est trois fois plus faible que le taux de transmission. Puisque la contamination a commencé avec un membre du personnel qui communique avec beaucoup de personnes, la probabilité qu'au moins une personne soit contaminée augmente drastiquement. Seul les personnes qui communiquent peu ou avec peu de personne sont épargnées jusqu'à un certain point.
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2013_high_0.png}
+    \hfill
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2015_high_0.png} \\
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2013_high_1.png}
+    \hfill
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2015_high_1.png} \\
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2013_high_2.png}
+    \hfill
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2015_high_2.png} \\
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2013_high_3.png}
+    \hfill
+    \includegraphics[width=0.30\textwidth]{assets/epidemiologie/2015_high_3.png}
+    \caption{Début de la simulation de propagations pour les années 2013 (gauche) et 2015 (droite) sur 4 étapes}
+    \label{fig:simu_proba_0-3}
+\end{figure}
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+        \hline
+        \textbf{Numéro d'étape} & \textbf{Résultats pour 2013}                    & \textbf{Résultat pour 2015}                    \\
+        \hline
+        Étape 0                 & Susceptibles = 91, Infectés = 1, Rétablis = 0   & Susceptibles = 216, Infectés = 1, Rétablis = 0
+        \\
+        \hline
+        Étape 1                 & Susceptibles = 78, Infectés = 14, Rétablis = 0
+                                & Susceptibles = 189, Infectés = 28, Rétablis = 0
+        \\
+        \hline
+        Étape 2                 & Susceptibles = 33, Infectés = 59, Rétablis = 0
+                                & Susceptibles = 51, Infectés = 163, Rétablis = 3
+        \\
+        \hline
+        Étape 3                 & Susceptibles = 7, Infectés = 75, Rétablis = 10
+                                & Susceptibles = 3, Infectés = 194, Rétablis = 20
+        \\
+        \hline
+    \end{tabular}
+    \caption{Résulat de la simulation pour les 4 premières étapes}
+    \label{tab:simulation_results}
+\end{table}
+
+\newpage
 \section{Détection de communautés}
 
 Dans cette section, notre objectif est d'identifier la présence de communautés au sein de nos graphes en exploitant principalement la bibliothèque Python Louvain Community.
